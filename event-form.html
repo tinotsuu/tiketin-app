@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TiketId-Edit Event</title>
+</head>
+<body>
+    <header>
+        <img src="E:\TUGAS KULIAH\SMT5\Pengweb\tiketin-app\assets\logo.png"
+        alt="Logo TiketIn">
+        <h1>TiketIn</h1>
+    </header>
+
+    <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="event-form.html">Tambah Event</a></li>
+      <li><a href="event-detail.html">Contoh Detail Event</a></li>
+    </ul>
+  </nav>
+
+   <main>
+    <h2>Form Tambah / Edit Event</h2>
+    <p>Gunakan form berikut untuk menambahkan event baru atau mengedit event yang sudah ada.</p>
+
+    <form action="#" method="post">
+
+      <p>
+        <label for="nama-event">Nama Event</label><br>
+        <input type="text" id="nama-event" name="nama-event" placeholder="Contoh: Konser Musik Akbar" required>
+      </p>
+
+      <p>
+        <label for="kategori">Kategori Event</label><br>
+        <select id="kategori" name="kategori">
+          <option value="musik">Musik</option>
+          <option value="olahraga">Olahraga</option>
+          <option value="teater">Teater</option>
+          <option value="festival">Festival</option>
+        </select>
+      </p>
+
+      <p>
+        <label for="tanggal">Tanggal Event</label><br>
+        <input type="date" id="tanggal" name="tanggal" required>
+      </p>
+
+      <p>
+        <label for="waktu">Waktu Event</label><br>
+        <input type="time" id="waktu" name="waktu">
+      </p>
+
+      <p>
+        <label for="lokasi">Lokasi / Venue</label><br>
+        <input type="text" id="lokasi" name="lokasi" placeholder="Contoh: Gelora Bung Karno">
+      </p>
+
+      <p>
+        <label for="kota">Kota</label><br>
+        <select id="kota" name="kota">
+          <option value="jakarta">Jakarta</option>
+          <option value="bandung">Bandung</option>
+          <option value="yogyakarta">Yogyakarta</option>
+          <option value="surabaya">Surabaya</option>
+        </select>
+      </p>
+
+      <p>
+        <label for="harga">Harga Tiket (Rp)</label><br>
+        <input type="number" id="harga" name="harga" min="0" placeholder="Contoh: 250000">
+      </p>
+
+      <p>
+        <label for="kuota">Jumlah Kuota Tiket</label><br>
+        <input type="number" id="kuota" name="kuota" min="1" placeholder="Contoh: 500">
+      </p>
+
+      <p>
+        <label for="deskripsi">Deskripsi Event</label><br>
+        <textarea id="deskripsi" name="deskripsi" rows="5" cols="40" placeholder="Tuliskan deskripsi lengkap event di sini..."></textarea>
+      </p>
+
+      <p>
+        <label for="poster">Poster Event</label><br>
+        <input type="file" id="poster" name="poster" accept="image/*">
+      </p>
+
+      <p>
+        <button type="submit">Simpan Event</button>
+        <button type="reset">Reset</button>
+      </p>
+
+    </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 TiketIn. Semua hak cipta dilindungi ges.</p>
+        <p>kontak: <a href="mailto:admin@tiketIn.com">admin@tiketIn.com</a> </p>
+    </footer>
+</body>
+</html>
