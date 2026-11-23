@@ -28,3 +28,14 @@ body {
   height: 180px;
   object-fit: cover;
 }
+
+/* notifikasi melayang di atas halaman (dipakai script.js minggu 5) */
+#notif {
+  position: fixed;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(92%, 560px);
+  z-index: 1080;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}

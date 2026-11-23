@@ -52,7 +52,7 @@
         <div class="col-6 col-md-3">
           <div class="card text-center shadow-sm h-100">
             <div class="card-body">
-              <p class="fs-4 fw-bold text-tiketin mb-0">3</p>
+              <p class="fs-4 fw-bold text-tiketin mb-0" id="statTotal">0</p>
               <p class="mb-0 text-muted">Total Event</p>
             </div>
           </div>
@@ -60,7 +60,7 @@
         <div class="col-6 col-md-3">
           <div class="card text-center shadow-sm h-100">
             <div class="card-body">
-              <p class="fs-4 fw-bold text-tiketin mb-0">550</p>
+              <p class="fs-4 fw-bold text-tiketin mb-0" id="statTiket">0</p>
               <p class="mb-0 text-muted">Tiket Tersedia</p>
             </div>
           </div>
@@ -68,7 +68,7 @@
         <div class="col-6 col-md-3">
           <div class="card text-center shadow-sm h-100">
             <div class="card-body">
-              <p class="fs-4 fw-bold text-tiketin mb-0">Rp 150.000</p>
+              <p class="fs-4 fw-bold text-tiketin mb-0" id="statTermurah">-</p>
               <p class="mb-0 text-muted">Harga Termurah</p>
             </div>
           </div>
@@ -76,7 +76,7 @@
         <div class="col-6 col-md-3">
           <div class="card text-center shadow-sm h-100">
             <div class="card-body">
-              <p class="fs-4 fw-bold text-tiketin mb-0">2</p>
+              <p class="fs-4 fw-bold text-tiketin mb-0" id="statKategori">0</p>
               <p class="mb-0 text-muted">Kategori</p>
             </div>
           </div>
@@ -86,35 +86,52 @@
 
     <section class="mb-4">
       <h2 class="h4">Newest Event Just For You</h2>
-      <div class="row g-3">
-        <div class="col-md-6">
-          <article class="card h-100">
-            <img src="assets/konser1.jpg" class="card-img-top" alt="Poster Konser Kolaborasi Musisi Indonesia">
-            <div class="card-body">
-              <h3 class="card-title h5">Konser Kolaborasi Musisi Indonesia</h3>
-              <p class="card-text text-muted mb-1">12 Oktober 2026 - Telkom University Convention Hall</p>
-              <p class="card-text fw-bold text-tiketin">Rp 300.000</p>
-              <a href="event-detail.html" class="btn btn-sm btn-tiketin">Lihat Detail</a>
-            </div>
-          </article>
-        </div>
-        <div class="col-md-6">
-          <article class="card h-100">
-            <img src="assets/teater1.jpg" class="card-img-top" alt="Poster pertunjukan Teater Anu">
-            <div class="card-body">
-              <h3 class="card-title h5">Teater Anu</h3>
-              <p class="card-text text-muted mb-1">2 Oktober 2026 - Taman Gasibu Bandung</p>
-              <p class="card-text fw-bold text-tiketin">Rp 150.000</p>
-              <a href="event-detail.html" class="btn btn-sm btn-tiketin">Lihat Detail</a>
-            </div>
-          </article>
-        </div>
+      <div class="row g-3" id="kartuEvent">
+        <!-- kartu dibuat oleh script.js dari data dummy -->
       </div>
     </section>
 
     <!-- HALAMAN TABEL DATA -->
     <section class="mb-4">
-      <h2 class="h4">Semua Event</h2>
+      <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-2">
+        <h2 class="h4 mb-0">Semua Event</h2>
+        <button type="button" class="btn btn-outline-secondary btn-sm" id="btnFilter"
+                aria-expanded="false" aria-controls="panelFilter">Filter &amp; Urutkan</button>
+      </div>
+
+      <!-- panel ini disembunyikan dulu, dibuka/ditutup dengan slideToggle (jQuery) -->
+      <div id="panelFilter" class="card card-body mb-3" style="display: none;">
+        <div class="row g-3">
+          <div class="col-md-4">
+            <label for="cari" class="form-label">Cari nama event</label>
+            <input type="search" class="form-control" id="cari" placeholder="Contoh: jazz">
+          </div>
+          <div class="col-md-4">
+            <label for="filterKategori" class="form-label">Kategori</label>
+            <select id="filterKategori" class="form-select">
+              <option value="semua">Semua kategori</option>
+              <option value="Musik">Musik</option>
+              <option value="Teater">Teater</option>
+              <option value="Festival">Festival</option>
+              <option value="Olahraga">Olahraga</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label for="urutkan" class="form-label">Urutkan</label>
+            <select id="urutkan" class="form-select">
+              <option value="default">Bawaan</option>
+              <option value="murah">Harga termurah</option>
+              <option value="mahal">Harga termahal</option>
+              <option value="tanggal">Tanggal terdekat</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div id="notif" class="alert" role="status" aria-live="polite" style="display: none;"></div>
+
+      <p id="infoJumlah" class="text-muted mb-2"></p>
+
       <div class="table-responsive">
         <table class="table table-striped table-hover align-middle">
           <thead class="table-dark">
@@ -127,41 +144,8 @@
               <th scope="col">Aksi</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>Konser Kolaborasi Musisi Indonesia</td>
-              <td>12 Oktober 2026</td>
-              <td>Telkom University Convention Hall</td>
-              <td>Rp 300.000</td>
-              <td>
-                <a href="event-detail.html" class="btn btn-sm btn-outline-primary">Detail</a>
-                <a href="event-form.html" class="btn btn-sm btn-outline-secondary">Edit</a>
-              </td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Jazz Fest Bandung</td>
-              <td>26 Oktober 2026</td>
-              <td>Taman Lalu Lintas Bandung</td>
-              <td>Rp 350.000</td>
-              <td>
-                <a href="event-detail.html" class="btn btn-sm btn-outline-primary">Detail</a>
-                <a href="event-form.html" class="btn btn-sm btn-outline-secondary">Edit</a>
-              </td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Teater Anu</td>
-              <td>2 Oktober 2026</td>
-              <td>Taman Gasibu Bandung</td>
-              <td>Rp 150.000</td>
-              <td>
-                <a href="event-detail.html" class="btn btn-sm btn-outline-primary">Detail</a>
-                <a href="event-form.html" class="btn btn-sm btn-outline-secondary">Edit</a>
-              </td>
-            </tr>
-          </tbody>
+          <!-- baris tabel dibuat oleh script.js dari data dummy -->
+          <tbody id="tabelEvent"></tbody>
         </table>
       </div>
     </section>
@@ -173,5 +157,7 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

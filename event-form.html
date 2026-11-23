@@ -36,12 +36,15 @@
     <h1 class="h3">Form Tambah / Edit Event</h1>
     <p>Gunakan form berikut untuk menambahkan event baru atau mengedit event yang sudah ada.</p>
 
-    <form action="#" method="post">
+    <div id="notif" class="alert" role="status" aria-live="polite" style="display: none;"></div>
+
+    <form action="#" method="post" id="formEvent" novalidate>
 
       <div class="row mb-3">
         <label for="nama-event" class="col-sm-2 col-form-label">Nama Event</label>
         <div class="col-sm-10">
           <input type="text" class="form-control" id="nama-event" name="nama-event" placeholder="Contoh: Konser Musik Akbar" required>
+          <div class="invalid-feedback"></div>
         </div>
       </div>
 
@@ -61,6 +64,7 @@
         <label for="tanggal" class="col-sm-2 col-form-label">Tanggal Event</label>
         <div class="col-sm-10">
           <input type="date" class="form-control" id="tanggal" name="tanggal" required>
+          <div class="invalid-feedback"></div>
         </div>
       </div>
 
@@ -75,6 +79,7 @@
         <label for="lokasi" class="col-sm-2 col-form-label">Lokasi / Venue</label>
         <div class="col-sm-10">
           <input type="text" class="form-control" id="lokasi" name="lokasi" placeholder="Contoh: Gelora Bung Karno">
+          <div class="invalid-feedback"></div>
         </div>
       </div>
 
@@ -94,6 +99,7 @@
         <label for="harga" class="col-sm-2 col-form-label">Harga Tiket (Rp)</label>
         <div class="col-sm-10">
           <input type="number" class="form-control" id="harga" name="harga" min="0" placeholder="Contoh: 250000">
+          <div class="invalid-feedback"></div>
         </div>
       </div>
 
@@ -101,6 +107,7 @@
         <label for="kuota" class="col-sm-2 col-form-label">Jumlah Kuota Tiket</label>
         <div class="col-sm-10">
           <input type="number" class="form-control" id="kuota" name="kuota" min="1" placeholder="Contoh: 500">
+          <div class="invalid-feedback"></div>
         </div>
       </div>
 
@@ -108,6 +115,7 @@
         <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi Event</label>
         <div class="col-sm-10">
           <textarea class="form-control" id="deskripsi" name="deskripsi" rows="5" placeholder="Tuliskan deskripsi lengkap event di sini..."></textarea>
+          <div class="invalid-feedback"></div>
         </div>
       </div>
 
@@ -126,6 +134,25 @@
       </div>
 
     </form>
+    <!-- daftar event yang baru ditambahkan (muncul dengan fadeIn setelah form valid) -->
+    <section id="sectionBaru" class="mt-5" style="display: none;">
+      <h2 class="h4">Event yang Baru Ditambahkan (data dummy)</h2>
+      <div class="table-responsive">
+        <table class="table table-striped align-middle">
+          <thead class="table-dark">
+            <tr>
+              <th scope="col">No</th>
+              <th scope="col">Nama Event</th>
+              <th scope="col">Kategori</th>
+              <th scope="col">Tanggal</th>
+              <th scope="col">Harga</th>
+              <th scope="col">Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="tabelBaru"></tbody>
+        </table>
+      </div>
+    </section>
   </main>
 
   <footer class="bg-dark text-white text-center py-4 mt-5">
@@ -134,5 +161,7 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
