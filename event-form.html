@@ -1,134 +1,138 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TiketId-Edit Event</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TiketIn - Tambah/Edit Event</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="custom.css">
 </head>
 <body>
-    <header>
-         <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#4a148c;">
+
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-tiketin">
       <div class="container">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
           <img src="assets/logo.png" alt="Logo TiketIn" height="35">
           TiketIn
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#menuUtama" aria-controls="menuUtama"
+                aria-expanded="false" aria-label="Buka menu navigasi">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navMenu">
+        <div class="collapse navbar-collapse" id="menuUtama">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-            <li class="nav-item"><a class="nav-link active" href="event-form.html">Tambah Event</a></li>
-            <li class="nav-item"><a class="nav-link" href="event-detail.html">Contoh Detail Event</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="event-form.html">Tambah Event</a></li>
+            <li class="nav-item"><a class="nav-link" href="event-detail.html">Detail Event</a></li>
           </ul>
         </div>
       </div>
     </nav>
-    
-   <main class="container my-4">
-      <h2>Form Tambah / Edit Event</h2>
-      <p>Gunakan form berikut untuk menambahkan event baru atau mengedit event yang sudah ada.</p>
+  </header>
 
-      <form action="#" method="post">
+  <main class="container my-4">
+    <h1 class="h3">Form Tambah / Edit Event</h1>
+    <p>Gunakan form berikut untuk menambahkan event baru atau mengedit event yang sudah ada.</p>
 
-        <div class="row mb-3">
-          <label for="nama-event" class="col-sm-2 col-form-label">Nama Event</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="nama-event" name="nama-event" placeholder="Contoh: Konser Musik Akbar" required>
-          </div>
+    <form action="#" method="post">
+
+      <div class="row mb-3">
+        <label for="nama-event" class="col-sm-2 col-form-label">Nama Event</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="nama-event" name="nama-event" placeholder="Contoh: Konser Musik Akbar" required>
         </div>
+      </div>
 
-        <div class="row mb-3">
-          <label for="kategori" class="col-sm-2 col-form-label">Kategori Event</label>
-          <div class="col-sm-10">
-            <select id="kategori" name="kategori" class="form-select">
-              <option value="musik">Musik</option>
-              <option value="olahraga">Olahraga</option>
-              <option value="teater">Teater</option>
-              <option value="festival">Festival</option>
-            </select>
-          </div>
+      <div class="row mb-3">
+        <label for="kategori" class="col-sm-2 col-form-label">Kategori Event</label>
+        <div class="col-sm-10">
+          <select id="kategori" name="kategori" class="form-select">
+            <option value="Musik">Musik</option>
+            <option value="Olahraga">Olahraga</option>
+            <option value="Teater">Teater</option>
+            <option value="Festival">Festival</option>
+          </select>
         </div>
+      </div>
 
-        <div class="row mb-3">
-          <label for="tanggal" class="col-sm-2 col-form-label">Tanggal Event</label>
-          <div class="col-sm-10">
-            <input type="date" class="form-control" id="tanggal" name="tanggal" required>
-          </div>
+      <div class="row mb-3">
+        <label for="tanggal" class="col-sm-2 col-form-label">Tanggal Event</label>
+        <div class="col-sm-10">
+          <input type="date" class="form-control" id="tanggal" name="tanggal" required>
         </div>
+      </div>
 
-        <div class="row mb-3">
-          <label for="waktu" class="col-sm-2 col-form-label">Waktu Event</label>
-          <div class="col-sm-10">
-            <input type="time" class="form-control" id="waktu" name="waktu">
-          </div>
+      <div class="row mb-3">
+        <label for="waktu" class="col-sm-2 col-form-label">Waktu Event</label>
+        <div class="col-sm-10">
+          <input type="time" class="form-control" id="waktu" name="waktu">
         </div>
+      </div>
 
-        <div class="row mb-3">
-          <label for="lokasi" class="col-sm-2 col-form-label">Lokasi / Venue</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="lokasi" name="lokasi" placeholder="Contoh: Gelora Bung Karno">
-          </div>
+      <div class="row mb-3">
+        <label for="lokasi" class="col-sm-2 col-form-label">Lokasi / Venue</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="lokasi" name="lokasi" placeholder="Contoh: Gelora Bung Karno">
         </div>
+      </div>
 
-        <div class="row mb-3">
-          <label for="kota" class="col-sm-2 col-form-label">Kota</label>
-          <div class="col-sm-10">
-            <select id="kota" name="kota" class="form-select">
-              <option value="jakarta">Jakarta</option>
-              <option value="bandung">Bandung</option>
-              <option value="yogyakarta">Yogyakarta</option>
-              <option value="surabaya">Surabaya</option>
-            </select>
-          </div>
+      <div class="row mb-3">
+        <label for="kota" class="col-sm-2 col-form-label">Kota</label>
+        <div class="col-sm-10">
+          <select id="kota" name="kota" class="form-select">
+            <option value="Jakarta">Jakarta</option>
+            <option value="Bandung">Bandung</option>
+            <option value="Yogyakarta">Yogyakarta</option>
+            <option value="Surabaya">Surabaya</option>
+          </select>
         </div>
+      </div>
 
-        <div class="row mb-3">
-          <label for="harga" class="col-sm-2 col-form-label">Harga Tiket (Rp)</label>
-          <div class="col-sm-10">
-            <input type="number" class="form-control" id="harga" name="harga" min="0" placeholder="Contoh: 250000">
-          </div>
+      <div class="row mb-3">
+        <label for="harga" class="col-sm-2 col-form-label">Harga Tiket (Rp)</label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" id="harga" name="harga" min="0" placeholder="Contoh: 250000">
         </div>
+      </div>
 
-        <div class="row mb-3">
-          <label for="kuota" class="col-sm-2 col-form-label">Jumlah Kuota Tiket</label>
-          <div class="col-sm-10">
-            <input type="number" class="form-control" id="kuota" name="kuota" min="1" placeholder="Contoh: 500">
-          </div>
+      <div class="row mb-3">
+        <label for="kuota" class="col-sm-2 col-form-label">Jumlah Kuota Tiket</label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" id="kuota" name="kuota" min="1" placeholder="Contoh: 500">
         </div>
+      </div>
 
-        <div class="row mb-3">
-          <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi Event</label>
-          <div class="col-sm-10">
-            <textarea class="form-control" id="deskripsi" name="deskripsi" rows="5" placeholder="Tuliskan deskripsi lengkap event di sini..."></textarea>
-          </div>
+      <div class="row mb-3">
+        <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi Event</label>
+        <div class="col-sm-10">
+          <textarea class="form-control" id="deskripsi" name="deskripsi" rows="5" placeholder="Tuliskan deskripsi lengkap event di sini..."></textarea>
         </div>
+      </div>
 
-        <div class="row mb-3">
-          <label for="poster" class="col-sm-2 col-form-label">Poster Event</label>
-          <div class="col-sm-10">
-            <input type="file" class="form-control" id="poster" name="poster" accept="image/*">
-          </div>
+      <div class="row mb-3">
+        <label for="poster" class="col-sm-2 col-form-label">Poster Event</label>
+        <div class="col-sm-10">
+          <input type="file" class="form-control" id="poster" name="poster" accept="image/*">
         </div>
+      </div>
 
-        <div class="row">
-          <div class="col-sm-10 offset-sm-2">
-            <button type="submit" class="btn btn-primary">Simpan Event</button>
-            <button type="reset" class="btn btn-secondary">Reset</button>
-          </div>
+      <div class="row">
+        <div class="col-sm-10 offset-sm-2">
+          <button type="submit" class="btn btn-tiketin">Simpan Event</button>
+          <button type="reset" class="btn btn-secondary">Reset</button>
         </div>
+      </div>
 
-      </form>
-    </main>
+    </form>
+  </main>
 
-    <footer class="text-center text-white py-4 mt-5" style="background-color:#2b2b2b;">
-        <p>&copy; 2026 TiketIn. Semua hak cipta dilindungi ges.</p>
-        <p>kontak: <a href="mailto:admin@tiketIn.com" class="text-white">admin@tiketIn.com</a></p>
-    </footer>
+  <footer class="bg-dark text-white text-center py-4 mt-5">
+    <p class="mb-1">&copy; 2026 TiketIn. Semua hak cipta dilindungi ges.</p>
+    <p class="mb-0">kontak: <a href="mailto:admin@tiketIn.com" class="link-light">admin@tiketIn.com</a></p>
+  </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
